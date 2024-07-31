@@ -74,6 +74,7 @@ Number of samples processed before the model's internal parameters are updated.
 One full pass through the entire training dataset.
 
 **Let's deep dive into each key concept of deep learning -->**
+---
 
 ### 1. Activation Functions in Deep Learning
 
@@ -86,9 +87,6 @@ Activation functions play a crucial role in neural networks by introducing non-l
 The sigmoid function maps any input to a value between 0 and 1. It is represented as:
 
 ![image](https://github.com/user-attachments/assets/fccd5a8b-4fe6-4435-8ade-5e5d457dcdbd)
-
-![image](https://github.com/user-attachments/assets/c82ba135-a1dc-45b8-8068-141097e43f8c)
-
 
 Pros:
 - Smooth gradient, preventing abrupt changes in direction during optimization.
@@ -205,6 +203,81 @@ Activation functions are used after each layer of a neural network to introduce 
 - Hidden Layers: Activation functions like ReLU, Leaky ReLU, and tanh are applied to introduce non-linearity.
 - Output Layer: Activation functions like Softmax or Sigmoid are used to produce the final output, depending on the task.
 
+### 2. Loss Functions in Deep Learning
 
+Loss functions, also known as cost functions or objective functions, quantify how well a model's predictions match the true labels. They measure the difference between the predicted values and the actual values, guiding the optimization process to minimize this difference. Different types of loss functions are used depending on the nature of the task (e.g., classification, regression) and the model architecture.
 
+#### Importance of Loss Functions - 
+1. Guiding Training: Loss functions provide a way to guide the training process by quantifying prediction errors. The optimizer uses the loss function to adjust the model's weights.
+2. Performance Measure: They serve as a measure of the model's performance. A lower loss indicates better performance.
+3. Model Selection: Choosing the right loss function is crucial for the model's success. The choice affects how the model learns and converges.
+
+#### Types of Loss Functions
+
+#### 1. Mean Squared Error (MSE)
+![image](https://github.com/user-attachments/assets/0bdf0f63-284f-474e-8bfb-fe581d03dfea)
+
+- Description: Measures the average squared difference between the actual values and the predicted values.
+- Use Case: Commonly used in **regression tasks**
+- Pros: Penalizes larger errors more significantly, leading to more accurate predictions.
+- Cons: Sensitive to outliers.
+
+#### 2. Mean Absolute Error (MAE)
+![image](https://github.com/user-attachments/assets/b1febcfd-5a82-47cd-9b71-8d2c52e677d1)
+
+- Description: Measures the average absolute difference between the actual values and the predicted values.
+- Use Case: Also used in **regression tasks**
+- Pros: More robust to outliers compared to MSE.
+- Cons: Does not penalize larger errors as severely as MSE.
+
+#### 3. Binary Cross-Entropy (Log Loss)
+![image](https://github.com/user-attachments/assets/10e70954-d538-4ce1-af93-1403b75965a8)
+
+- Description: Measures the performance of a classification model whose output is a probability value between 0 and 1.
+- Use Case: Used in binary classification tasks.
+- Pros: Effective for probabilistic predictions.
+- Cons: Can be undefined if is exactly 0 or 1.
+
+#### 4. Categorical Cross-Entropy
+![image](https://github.com/user-attachments/assets/ef91260e-c9c0-4c7f-8bda-51302c5189af)
+
+- Description: Measures the performance of a classification model whose output is a probability distribution over multiple classes.
+- Use Case: Used in multi-class classification tasks.
+- Pros: Suitable for one-hot encoded targets.
+- Cons: Assumes mutually exclusive classes.
+
+#### 5. Hinge Loss
+![image](https://github.com/user-attachments/assets/11459325-8871-4ff7-ba12-60f5b6fb8f29)
+
+- Description: Used for "maximum-margin" classification, most notably for support vector machines.
+- Use Case: Binary classification.
+- Pros: Encourages the correct classification of samples with a margin.
+- Cons: Not suitable for probabilistic outputs.
+
+#### 6. Huber Loss
+
+- The Huber Loss function, also known as Smooth L1 Loss, is a loss function used in regression problems. It combines the advantages of both the Mean Squared Error (MSE) and Mean Absolute Error (MAE) loss functions, making it robust to outliers while still providing smooth gradients for small errors.
+ Use case: Regression problems
+ 
+#### Applications of Loss Functions in Computer Vision
+
+#### 1. Image Classification:
+- Loss Functions: Categorical Cross-Entropy, Sparse Categorical Cross-Entropy
+- Example: Classifying images of handwritten digits (e.g., MNIST dataset), identifying objects in images (e.g., ImageNet dataset).
+- Description: These loss functions help in training models to assign the correct label to an image out of many possible categories.
+  
+#### 2. Object Detection:
+- Loss Functions: Combination of Binary Cross-Entropy for object classification and Smooth L1 Loss (or Huber Loss) for bounding box regression.
+- Example: Detecting and localizing objects in images (e.g., YOLO, Faster R-CNN).
+- Description: The classification part of the loss function ensures that the model accurately identifies objects, while the regression part helps in predicting the precise location of the bounding boxes around objects.
+
+#### 3. Image Segmentation:
+- Loss Functions: Categorical Cross-Entropy for pixel-wise classification, Dice Loss for overlapping regions.
+- Example: Segmenting regions of interest in medical images (e.g., UNet), separating foreground objects from the background (e.g., semantic segmentation).
+- Description: These loss functions help in training models to assign each pixel of an image to a specific class, enabling precise segmentation of objects within an image.
+
+#### 4. Image Denoising:
+- Loss Functions: Mean Squared Error (MSE)
+- Example: Removing noise from images to restore clean images.
+- Description: MSE helps in training models to minimize the difference between noisy images and their clean counterparts, effectively removing noise.
 
