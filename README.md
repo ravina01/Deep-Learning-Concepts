@@ -73,11 +73,137 @@ Number of samples processed before the model's internal parameters are updated.
 #### 6. Epochs: 
 One full pass through the entire training dataset.
 
+**Let's deep dive into each key concept of deep learning -->**
+
+### 1. Activation Functions in Deep Learning
+
+![image](https://github.com/user-attachments/assets/aa0dc93d-aa43-4057-835c-5e18e8ce1344)
+
+Activation functions play a crucial role in neural networks by introducing non-linearity, allowing the model to learn complex patterns and representations. They determine the output of a neural network's node given an input or set of inputs. Let's delve into the details of different activation functions, their types, and specific use cases in computer vision applications.
 
 
+#### a. Sigmoid
+The sigmoid function maps any input to a value between 0 and 1. It is represented as:
+
+![image](https://github.com/user-attachments/assets/fccd5a8b-4fe6-4435-8ade-5e5d457dcdbd)
+
+![image](https://github.com/user-attachments/assets/c82ba135-a1dc-45b8-8068-141097e43f8c)
 
 
+Pros:
+- Smooth gradient, preventing abrupt changes in direction during optimization.
+- Output range between 0 and 1, useful for probabilistic interpretations.
 
+Cons:
+- Can cause vanishing gradient problems.
+- Not zero-centered, leading to slower convergence.
+  
+Use Case:
+- Used in the output layer of binary classification problems.
+- Historically used in hidden layers, but less common now due to better alternatives.
+
+
+#### b. Tanh (Hyperbolic Tangent)
+The tanh function maps inputs to values between -1 and 1. It is represented as:
+
+![image](https://github.com/user-attachments/assets/5c36428b-798a-4878-8714-e52538f73efa)
+
+Pros:
+- Zero-centered, leading to better convergence.
+- Smoother gradient compared to sigmoid.
+
+Cons:
+- Can still suffer from the vanishing gradient problem.
+
+Use Case:
+- Used in hidden layers of neural networks, especially in RNNs.
+
+
+#### c. ReLU (Rectified Linear Unit)
+The ReLU function outputs the input directly if it is positive; otherwise, it outputs zero:
+![image](https://github.com/user-attachments/assets/26476dde-b610-4503-8a6d-ae82fd30bda6)
+
+Pros:
+- Sparse activation, making the network efficient.
+- Mitigates the vanishing gradient problem.
+- Computationally efficient.
+  
+Cons:
+- Can cause dying ReLU problem where neurons output zero for all inputs.
+- Not zero-centered.
+
+Use Case:
+- Widely used in hidden layers of convolutional neural networks (CNNs) and feedforward neural networks.
+- Popular in computer vision tasks like image classification, object detection, and segmentation.
+
+
+#### d. Leaky ReLU
+A variation of ReLU that allows a small, non-zero gradient when the input is negative:
+![image](https://github.com/user-attachments/assets/6d895144-e8c9-473e-9cf5-0f9d7a117835)
+
+Pros:
+- Prevents dying ReLU problem.
+- 
+Cons:
+- The optimal value of the slope for negative part needs tuning.
+
+Use Case:
+- Used in CNNs and other deep networks to improve training dynamics.
+
+
+#### e. Parametric ReLU (PReLU)
+Similar to Leaky ReLU, but the slope of the negative part is learned during training:
+![image](https://github.com/user-attachments/assets/fe19cccc-ebc3-4f1d-8d06-a9322c2ab351)
+
+Pros:
+- Adaptable to the data during training.
+
+Cons:
+- Slightly more computationally expensive due to parameter learning.
+
+Use Case:
+- Used in deeper neural networks where learning the slope can provide a performance boost.
+
+#### f. Softmax
+The softmax function converts logits into probabilities, summing to 1. It is represented as:
+![image](https://github.com/user-attachments/assets/56173b5f-ed4e-4e61-8f2c-8323feb5bb9d)
+
+Pros:
+- Provides a probabilistic interpretation of the output.
+
+Cons:
+- Not used in hidden layers due to computational complexity.
+
+Use Case:
+- Used in the output layer of multi-class classification problems.
+
+  
+#### Specific Use Cases in Computer Vision Applications
+
+1. Image Classification:
+- Hidden Layers: ReLU, Leaky ReLU, PReLU
+- Output Layer: Softmax for multi-class classification, Sigmoid for binary classification.
+
+2.Object Detection:
+- Hidden Layers: ReLU, Leaky ReLU
+- Output Layer: Sigmoid for bounding box coordinates and class probabilities in multi-label detection frameworks like YOLO.
+
+3.Image Segmentation:
+- Hidden Layers: ReLU, Leaky ReLU
+- Output Layer: Sigmoid for binary segmentation, Softmax for multi-class segmentation (e.g., UNet).
+  
+4. Transformers:
+- Attention Mechanisms: Softmax is used to calculate attention weights.
+- Feedforward Layers: Typically use ReLU or variants for non-linear transformations.
+
+
+#### Stage of Deep Learning Where Activation Functions are Used
+
+Activation functions are used after each layer of a neural network to introduce non-linearity. This is crucial for the model to learn complex patterns. The specific stage is:
+
+- Input Layer: No activation function is used here.
+- Hidden Layers: Activation functions like ReLU, Leaky ReLU, and tanh are applied to introduce non-linearity.
+- Output Layer: Activation functions like Softmax or Sigmoid are used to produce the final output, depending on the task.
 
 
 
