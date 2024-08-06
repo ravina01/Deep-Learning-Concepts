@@ -280,4 +280,27 @@ Loss functions, also known as cost functions or objective functions, quantify ho
 - Loss Functions: Mean Squared Error (MSE)
 - Example: Removing noise from images to restore clean images.
 - Description: MSE helps in training models to minimize the difference between noisy images and their clean counterparts, effectively removing noise.
+---
 
+### EfficientNet ->
+- is a family of convolutional neural networks designed to achieve state-of-the-art accuracy while being computationally efficient.
+- EfficientNet-B0 is the baseline model from which the other EfficientNet models are scaled.
+  
+#### Key Components of EfficientNet-B0
+
+1. Stem Layer:
+- Conv2d with 3 input channels (RGB) and 32 output channels, kernel size 3x3, stride 2, padding 1.
+- Batch Normalization.
+- Swish Activation.
+  
+2. MBConv Blocks:
+![image](https://github.com/user-attachments/assets/344e0b67-297e-448e-b8e3-e85bd5257ca1)
+
+3. Head Layer:
+- Conv2d with 1280 output channels, kernel size 1x1.
+- Batch Normalization - To normalize the outputs of the convolutional layer, ensuring that the network trains faster and more reliably.
+- Swish Activation  To introduce non-linearity and enable the network to learn complex patterns.  f(x)=x⋅sigmoid(x).
+- Global Average Pooling  - To reduce each feature map to a single value by averaging all the values in the feature map.
+- Fully Connected Layer (Dense layer) with the number of units equal to the number of output classes. - To map the pooled features to the desired number of output classes.
+- Dropout - To prevent overfitting by randomly setting a fraction of input units to zero during training.
+- Softmax Activation (for classification) - To convert the logits to probabilities for classification.
