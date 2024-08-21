@@ -304,3 +304,64 @@ Loss functions, also known as cost functions or objective functions, quantify ho
 - Fully Connected Layer (Dense layer) with the number of units equal to the number of output classes. - To map the pooled features to the desired number of output classes.
 - Dropout - To prevent overfitting by randomly setting a fraction of input units to zero during training.
 - Softmax Activation (for classification) - To convert the logits to probabilities for classification.
+  
+---
+
+will cover ->
+
+1. Loss functions and Optimizers
+2. Gradient descent Architecture
+3. Neural network Architectures
+4. 5 Steps to every DL model
+
+1. Learning process - forward proppogation and back propogation.
+2. from input layer to output layer
+3. weighted sum of neuron * weights + bias is passed to activation functions
+4. which decides weather that particular neuron can contribute in the next layer.
+5. output layer is in the form of probability.
+6. weight - tells us how important the neuron is
+7. bias - allows for the shifting of activations function to the right/left. adding scalar value to function shifts the graph to either left/right
+8. neural net spits out predictions, neural network evaluates the performance, 
+9. loss function quatifies the deviation from the expected output.
+10. This information is sent back to neural nets and weighst and biases are adjusted accordingly.
+11. initial values of weights and biases are random.
+12. use loss function to adjust weights and biases and go backwards.
+13. Values are adjusted to better fit the prediction model.
+14. more the data the better it will be in predicting the output.
+15. But theres trade off, too much data and you will end up, with problem like overfitting.
+16. once network is gone through all the data, it can be used to make predictions.
+17. 
+
+#### Learning algorithm -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
