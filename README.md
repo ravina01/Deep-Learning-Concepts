@@ -438,6 +438,40 @@ data point is intial weights.
 
 ![image](https://github.com/user-attachments/assets/c1d1e9b8-c949-46b6-ae1b-48260c1d0192)
 
+- to avoid getting stuck in local minima, we make sure that we use proper learning rate.
+- taking steps which are too large/ too small can hinder your ability to converge/ minimize the loss functon.
+-  we dont want to take longer steps so that we can miss the optimal value or too small to reach the optimal value is taking longer than expected.
+-  smaller learning steps tell us, the chnages we are making to our weights are pretty small.
+-  0.001
+-  taking small steps mean that its taking forever to converge to the global minimum.
+-  too small steps might happen that the we are converging on local minima not global minima,
+-  we change the learning rate at right pace.
+-  
+
+### SGD - Stoachastic Gradient desecnt -
+- 
+
+### Hyperparas - cant be estimated from the data - specified manually
+- while model paras - estimated from the data.
+  
+- external to the neural network, value cant be estimated right from the data.
+- when dl algorithm is tuned, you are literally tuning the hyper parameters
+- if you have to manually specify the parameter it is a hyperparameter
+- Learning rate, activation function
+- search best value by trial and error
+- they are set manually and tuned accordingly
+- Batch - breakdown dataset in smaller chunks, and feed those chunks to the neural network one by one.
+- Epochs - when the entire dataset is passed forward and backward through the neural network only once.
+- we use more than 1 epoch to help our model generalize better.
+- too many epochs also can lead to overfitting, where model has essentially memorized the patterns in the training data and performs terribly on the data it has never seen before.
+- there is no right number of epochs unforunately.
+- iterations - no of batches needed to complete one epoch.
+- No of batches = no of iterations for one epoch
+- Experiment , experiment and experiment!
+
+
+
+
 
 
 
