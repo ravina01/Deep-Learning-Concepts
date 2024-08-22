@@ -430,9 +430,13 @@ will cover ->
 -  
 ![image](https://github.com/user-attachments/assets/25faf550-6ad1-4554-928a-473ade860669)
 
+data point is intial weights.
+- to get this data point to the min of this function, we need, to take the negative gradient, since we want to find the steepest decrease.
+- this happens iteratively till the loss is minized.
+- when dealing with high dimensional datasets, we want to find the global minimum of the loss function.
+- its possible that you find yourself in an area where it seems like, you have reached the lowest possible value of your loss fnction, but thats just local minima.  
 
-
-
+![image](https://github.com/user-attachments/assets/c1d1e9b8-c949-46b6-ae1b-48260c1d0192)
 
 
 
