@@ -467,12 +467,78 @@ data point is intial weights.
 - there is no right number of epochs unforunately.
 - iterations - no of batches needed to complete one epoch.
 - No of batches = no of iterations for one epoch
-- Experiment , experiment and experiment!
+- Experiment ,experiment and experiment!
+
+
+---
+### Regularization
+- model should perform well on training data and new test data
+- most common problem faced is overfitting
+- performs exceptionally well on training data bt not on testing data.
+
+### tackling overfitting -
+- dropout - memorizes less data and generalizes better, captures more randomness, more robust predictive model.
+- augmentation - more data - better model - data augmentation. rotating/ scaling not in OCR, the characters can mean something else.
+- early stopping - training error decreases steadily but the validation error increases after a certain point.
+
+
+### neural network architecture -
+
+1. Fully Connected feed forward neural network -
+- neurons have activation function which adds non-linearity
+- more neurons larger computational resources.
+- feed forward neural network - takes fixed-size inputs and returns fixed size outputs
+- vanilla feed forward neural network cant handle sequential data.
+  
+2. CNN
+- convolution, pooling- subsampling / downsampling- reduces the size for less computational load, fully-conncted and normalization.
+  
+3. RNN
+- uses feedback loop in hidden layers
+- 
+
+
+### Layers without Learnable Parameters
+- Scenario: Some layers in a CNN do not have weights or biases to learn; hence, there are no parameters to update.
+Examples:
+- Pooling Layers: Max pooling or average pooling layers perform down-sampling and do not have any weights or biases, so there are no updates.
+- Activation Functions: Layers like ReLU, Sigmoid, or Tanh apply an element-wise non-linear transformation but do not have weights.
+- Normalization Layers: Certain types of normalization layers like standard normalization (where mean and variance are calculated but not learned) do not have parameters to update. However, layers like Batch Normalization do have learnable parameters (scaling and shifting parameters), and these would be updated.
+
+
+### During Inference
+Scenario: During inference (testing or prediction), the model performs a forward pass only. The weights of the network are not updated since the model is not being trained.
+Explanation: Inference is about using the learned weights to make predictions. The optimizer is not used, and no backpropagation occurs, so no weights are updated during this phase.
+
+
+- few hyperparmeters - small validation set
+- many hyperparameters - large validation set
+- no hyperpars - no need of validation set
+- Dataset split - split into - train and test and then split the train again in actual train and validation.
+- aka cross validation - avoid overfitting
+- hyper para tuning - increase no of epochs
+- adjust the LR
+- adressing overfitting - getting more data and regularization. - reduce model size, dropout, -
+- L1 and L2 regularization 
+
+![image](https://github.com/user-attachments/assets/27eda16e-8738-41e0-8bf6-b33ecad39891)
 
 
 
 
+---
+
+- supervised learning -
+- take input data and asign it to a class/ category.
+- algos - linear classifiers, support  vector machines, K-nearest neighbors, random forest
+
+- Regression
+- to predict continous values such as test scores
+- model attempts to find relationship between dependent and independent variables.
+
+- unsupervised learning -
+- clustering and assosiations
+- 
 
 
-
-
+---
