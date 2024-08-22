@@ -334,28 +334,101 @@ will cover ->
 
 #### Learning algorithm -->
 
+- Initialize parameters with random values - weights and biases
+- feed input data to network
+- Compare predicted value with expected value and calculate the loss
+- perform back propogation and propogate this loss back through the network
+- update the paras based on loss with gradient descent algorithm, such that the total loss is reduced and better model is obtained.
+- do the same thing till we get minized loss
+
+### terms used in DL
+
+####  1. Activation functions ->
+- introduces non-linearity in the network
+- decides whether a neuron can contribute to the next layer
+- how to decide neuron firing/ activation ?
+- step function we can activate neuron if its above certain values, lets say 0 -> activate
+- else we wont
+- derivative of linear function is const. as the slope isnt changing at any given point.
+- f = mx + c -> the derivative is m 
+- that means the gradient has no relationaship whatsoever, with x.
+- with linear layers, the output is single layer presentation on input layer.
+- imagine you have connected layers and if all of them are linear in nature, the activation function of the final layer, is nothing but just a linear function of input of the first layer. If we pause and think about it, that means the entire neural network, dozens of layers can be replaced by single layer as its linear presentation of the first layer.
+- combination of linear functions in linear manner is still another linear function.
+- This is terrible as we just lost the ability to stack layers this way, non matter how much we stack, whole network would be still equilavent to a single layer with, single activation.
+  
+-  If the activation functions were linear, no matter how many layers you add to a neural network, the entire network would behave like a single linear transformation.
+-  This means the network would be limited to solving only linear problems, which are not sufficient for most real-world tasks.
+-  Non-linearity allows neural networks to stack multiple layers, where each layer can learn different features of the input data.
+-  
 
 
 
+**Non-linear Function: A function that does not satisfy both additivity and homogeneity is non-linear. This means the output of a non-linear function does not change in a directly proportional manner to its input.**
+
+1. sigmoid
+- The sigmoid function is non-linear because it has a characteristic S-shape, meaning small changes in input around 0 lead to significant changes in output, but for very large or very small inputs, the output saturates.
+
+
+2. Tanh - 
+- The tanh function is also non-linear, with outputs ranging between -1 and 1. It captures more complex relationships than a linear function.
+
+3. ReLU (Rectified Linear Unit):
+- ReLU is non-linear because it changes the output based on whether the input is positive or negative, which cannot be represented by a single straight line.
+- dying relu problem.
+- during back propogation, weighst will not get adjusted during descent, neurons which go into that state, will stop responding to variations in the error. simply because gradient 0 nothing changes.-> this is dying relu problem.
+-  this will cause several neurons to jst die and not respond.
+-  making substantial part of the network passive rather than - what we want.
+-  workarounds for this would be - leaky relu and parametric relu. by adding slope in negative region.
+-  usually the slope is aroun y = 0.001 x - leaky relu
+-  parametric relu = y = alpha x 
+-  the main idea is that the gradient should never be 0.
+-  less computationally expensive than tanh and sigmoid.
+-  its simple mathematical operation.
+-  good point to consider when you are designing your own dl network.
+
+
+#### which activation function to use ?
+- Binary Classification Problems- sigmoid
+- if you are unsure - Relu / modified Relu
+- 
+#### why activation functions are non-linear ?
+- linear are polynomials with degree 1
+- while non -linear are polynomials with degree more than 1
+- if we use linear activation function, no matter how many layers we have, it will be always equivalent to having single layer network.
+- 
+
+
+### Loss functions -
+
+- quantifies the deviation of the predicted output with expected.
+
+1. Regression - Squared error, huber loss
+2. binary classification - Binary cross entropy, hinge loss
+3. Multi-class classification - multi-class cross entropy, kullback divergence,
 
 
 
+### Optimizers -
+- during the training process we tweak and change the weights/ parameters of the model.
+- to try and minimize the loss function.
+- make predictions as correct and optimized as possible.
+- loss value tell us which direction to take step towards.
+- 
+### Gradient descent -
+- Iterative algo that starts off at a random point on the loss function, and travels down its slope in steps until it reaches the lowest point (minimum) of the function.
+- most popular, fast and robust
+- 
+- 
+#### Algorithm -
+- calculate what a small change in each individual weight would do to the loss function
+- adjust each para based on its gradient
+- repeats step 1 and 2, until loss function is as low as possible
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#### Gradient -
+- its vector of a partial derivatives with respect to all independet variable.
+-  
+![image](https://github.com/user-attachments/assets/25faf550-6ad1-4554-928a-473ade860669)
 
 
 
